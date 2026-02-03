@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ttrpgcharacter/core/dependency_injection.dart';
+import 'package:ttrpgcharacter/core/utils/extensions.dart';
 import 'package:ttrpgcharacter/features/character/presentation/bloc/character_bloc.dart';
 import 'package:ttrpgcharacter/features/character/presentation/bloc/character_event.dart';
 import 'package:ttrpgcharacter/features/character/presentation/bloc/character_state.dart';
@@ -13,7 +14,7 @@ class CharactersPages extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<CharacterBloc>()..add(GetCharactersEvent()),
       child: Scaffold(
-        appBar: AppBar(title: const Text('My Characters')),
+        appBar: AppBar(title: Text(context.translate.charactersAppbarTitle)),
         body: Center(
           child: BlocBuilder<CharacterBloc, CharacterState>(
             builder: (context, state) {
