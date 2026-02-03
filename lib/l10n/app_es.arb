@@ -1,4 +1,6 @@
 {
     "@@locale": "es",
-    "charactersAppbarTitle": "Mis Personajes"
+    "charactersAppbarTitle": "Mis Personajes",
+    "charactersEmptyState": "No se encontraron personajes. Crea tu primer personaje tocando el botón +.",
+    "charactersFailedState": "Error al cargar los personajes."
 }

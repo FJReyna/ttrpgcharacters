@@ -1,4 +1,6 @@
 {
   "@@locale": "en",
-  "charactersAppbarTitle": "My Characters"
+  "charactersAppbarTitle": "My Characters",
+  "charactersEmptyState": "No characters found. Create your first character by tapping the + button.",
+  "charactersFailedState": "Failed to load characters."
 }

@@ -100,6 +100,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My Characters'**
   String get charactersAppbarTitle;
+
+  /// No description provided for @charactersEmptyState.
+  ///
+  /// In en, this message translates to:
+  /// **'No characters found. Create your first character by tapping the + button.'**
+  String get charactersEmptyState;
+
+  /// No description provided for @charactersFailedState.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load characters.'**
+  String get charactersFailedState;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

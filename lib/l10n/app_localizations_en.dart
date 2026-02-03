@@ -10,4 +10,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get charactersAppbarTitle => 'My Characters';
+
+  @override
+  String get charactersEmptyState => 'No characters found. Create your first character by tapping the + button.';
+
+  @override
+  String get charactersFailedState => 'Failed to load characters.';
 }

@@ -10,4 +10,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get charactersAppbarTitle => 'Mis Personajes';
+
+  @override
+  String get charactersEmptyState => 'No se encontraron personajes. Crea tu primer personaje tocando el botón +.';
+
+  @override
+  String get charactersFailedState => 'Error al cargar los personajes.';
 }

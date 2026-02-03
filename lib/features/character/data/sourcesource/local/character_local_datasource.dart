@@ -3,8 +3,20 @@ import 'package:ttrpgcharacter/features/character/domain/model/character_model.d
 class CharacterLocalDatasource {
   Future<List<CharacterModel>> getAllCharacters() async {
     return [
-      CharacterModel(id: '1', name: 'Hero'),
-      CharacterModel(id: '2', name: 'Villain'),
+      CharacterModel(
+        id: '1',
+        name: 'Valeros',
+        characterClass: 'Fighter',
+        ancestry: 'Human',
+        system: 'D&D 5e',
+      ),
+      CharacterModel(
+        id: '2',
+        name: 'Jester',
+        characterClass: 'Rogue',
+        ancestry: 'Elf',
+        system: 'Pathfinder 2e',
+      ),
     ];
   }
 
