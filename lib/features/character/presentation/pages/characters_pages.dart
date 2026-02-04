@@ -8,6 +8,7 @@ import 'package:ttrpgcharacter/features/character/presentation/bloc/character_bl
 import 'package:ttrpgcharacter/features/character/presentation/bloc/character_event.dart';
 import 'package:ttrpgcharacter/features/character/presentation/bloc/character_state.dart';
 import 'package:ttrpgcharacter/features/character/presentation/widgets/character_card_preview.dart';
+import 'package:ttrpgcharacter/features/character/presentation/widgets/character_empty_slot.dart';
 
 class CharactersPages extends StatelessWidget {
   const CharactersPages({super.key});
@@ -99,6 +100,16 @@ class CharactersPages extends StatelessWidget {
                     itemCount: state.characters.length,
                     itemBuilder: (context, index) {
                       final character = state.characters[index];
+
+                      if (index >= state.characters.length - 1) {
+                        return Column(
+                          children: [
+                            CharacterCardPreview(character: character),
+                            SizedBox(height: 10),
+                            const CharacterEmptySlot(),
+                          ],
+                        );
+                      }
                       return CharacterCardPreview(character: character);
                     },
                   );
