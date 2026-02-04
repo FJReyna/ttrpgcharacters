@@ -17,6 +17,69 @@ class CharacterLocalDatasource {
         ancestry: 'Elf',
         system: 'Pathfinder 2e',
       ),
+      /*CharacterModel(
+        id: '2',
+        name: 'Jester',
+        characterClass: 'Rogue',
+        ancestry: 'Elf',
+        system: 'Pathfinder 2e',
+      ),
+      CharacterModel(
+        id: '2',
+        name: 'Jester',
+        characterClass: 'Rogue',
+        ancestry: 'Elf',
+        system: 'Pathfinder 2e',
+      ),
+      CharacterModel(
+        id: '2',
+        name: 'Jester',
+        characterClass: 'Rogue',
+        ancestry: 'Elf',
+        system: 'Pathfinder 2e',
+      ),
+      CharacterModel(
+        id: '2',
+        name: 'Jester',
+        characterClass: 'Rogue',
+        ancestry: 'Elf',
+        system: 'Pathfinder 2e',
+      ),
+      CharacterModel(
+        id: '2',
+        name: 'Jester',
+        characterClass: 'Rogue',
+        ancestry: 'Elf',
+        system: 'Pathfinder 2e',
+      ),
+      CharacterModel(
+        id: '2',
+        name: 'Jester',
+        characterClass: 'Rogue',
+        ancestry: 'Elf',
+        system: 'Pathfinder 2e',
+      ),
+      CharacterModel(
+        id: '2',
+        name: 'Jester',
+        characterClass: 'Rogue',
+        ancestry: 'Elf',
+        system: 'Pathfinder 2e',
+      ),
+      CharacterModel(
+        id: '2',
+        name: 'Jester',
+        characterClass: 'Rogue',
+        ancestry: 'Elf',
+        system: 'Pathfinder 2e',
+      ),
+      CharacterModel(
+        id: '2',
+        name: 'Jester',
+        characterClass: 'Rogue',
+        ancestry: 'Elf',
+        system: 'Pathfinder 2e',
+      ),*/
     ];
   }
 
