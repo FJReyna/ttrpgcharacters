@@ -9,6 +9,8 @@ class CharacterLocalDatasource {
         characterClass: 'Fighter',
         ancestry: 'Human',
         system: 'D&D 5e',
+        createdAt: DateTime.now(),
+        updatedAt: DateTime.now(),
       ),
       CharacterModel(
         id: '2',
@@ -16,6 +18,8 @@ class CharacterLocalDatasource {
         characterClass: 'Rogue',
         ancestry: 'Elf',
         system: 'Pathfinder 2e',
+        createdAt: DateTime.now(),
+        updatedAt: DateTime.now(),
       ),
       /*CharacterModel(
         id: '2',

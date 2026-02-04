@@ -1,18 +1,23 @@
 import 'package:get_it/get_it.dart';
 import 'package:ttrpgcharacter/features/character/data/repository/character_repository_impl.dart';
-import 'package:ttrpgcharacter/features/character/data/sourcesource/local/character_local_datasource.dart';
+import 'package:ttrpgcharacter/features/character/data/sourcesource/local/hive_datasource.dart';
 import 'package:ttrpgcharacter/features/character/domain/usecases/create_character.dart';
 import 'package:ttrpgcharacter/features/character/domain/usecases/get_characters.dart';
 import 'package:ttrpgcharacter/features/character/presentation/bloc/character_bloc.dart';
+import 'package:uuid/uuid.dart';
 
 var getIt = GetIt.instance;
 
-void setup() {
-  getIt.registerLazySingleton<CharacterLocalDatasource>(
-    () => CharacterLocalDatasource(),
-  );
+Future<void> setup() async {
+  getIt.registerSingleton<Uuid>(Uuid());
+
+  final datasource = CharacterHiveDatasource();
+  await datasource.init();
+  await datasource.seedInitialData();
+
+  getIt.registerSingleton<CharacterHiveDatasource>(datasource);
   getIt.registerLazySingleton<CharacterRepositoryImpl>(
-    () => CharacterRepositoryImpl(getIt<CharacterLocalDatasource>()),
+    () => CharacterRepositoryImpl(getIt<CharacterHiveDatasource>()),
   );
   getIt.registerLazySingleton<GetCharacters>(
     () => GetCharacters(getIt<CharacterRepositoryImpl>()),
