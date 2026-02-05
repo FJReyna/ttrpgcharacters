@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ttrpgcharacter/core/theme/app_colors.dart';
+import 'package:ttrpgcharacter/core/utils/extensions.dart';
 
 class CharacterEmptySlot extends StatelessWidget {
   const CharacterEmptySlot({super.key});
@@ -47,7 +48,7 @@ class CharacterEmptySlot extends StatelessWidget {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Empty Slot',
+                          context.translate.charactersEmptySlot,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -55,7 +56,7 @@ class CharacterEmptySlot extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Start a new character',
+                          context.translate.charactersEmptySlotSubtitle,
                           style: TextStyle(
                             fontSize: 14,
                             color: AppColors.textSubtle,

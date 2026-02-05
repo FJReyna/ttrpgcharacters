@@ -19,4 +19,16 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get characterLoading => 'Cargando Personaje';
+
+  @override
+  String get charactersEmptySlot => 'Espacio disponible';
+
+  @override
+  String get charactersEmptySlotSubtitle => 'Crear un nuevo personaje';
+
+  @override
+  String get characterNoModules => 'No se encontraron módulos';
+
+  @override
+  String get characterNoModulesSubtitle => 'Agrega un nuevo módulo para comenzar.';
 }

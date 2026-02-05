@@ -19,4 +19,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get characterLoading => 'Loading Character';
+
+  @override
+  String get charactersEmptySlot => 'Empty Slot';
+
+  @override
+  String get charactersEmptySlotSubtitle => 'Start a new character';
+
+  @override
+  String get characterNoModules => 'No Modules found';
+
+  @override
+  String get characterNoModulesSubtitle => 'Add a new module to get started.';
 }

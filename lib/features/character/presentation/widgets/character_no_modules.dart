@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ttrpgcharacter/core/theme/app_colors.dart';
+import 'package:ttrpgcharacter/core/utils/extensions.dart';
 
 class CharacterNoModules extends StatelessWidget {
   const CharacterNoModules({super.key});
@@ -47,7 +48,7 @@ class CharacterNoModules extends StatelessWidget {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'No Modules found',
+                          context.translate.characterNoModules,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -55,7 +56,7 @@ class CharacterNoModules extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Add a new module to get started.',
+                          context.translate.characterNoModulesSubtitle,
                           style: TextStyle(
                             fontSize: 14,
                             color: AppColors.textSubtle,

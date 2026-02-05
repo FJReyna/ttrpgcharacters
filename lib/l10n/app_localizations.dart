@@ -118,6 +118,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Loading Character'**
   String get characterLoading;
+
+  /// No description provided for @charactersEmptySlot.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty Slot'**
+  String get charactersEmptySlot;
+
+  /// No description provided for @charactersEmptySlotSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a new character'**
+  String get charactersEmptySlotSubtitle;
+
+  /// No description provided for @characterNoModules.
+  ///
+  /// In en, this message translates to:
+  /// **'No Modules found'**
+  String get characterNoModules;
+
+  /// No description provided for @characterNoModulesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a new module to get started.'**
+  String get characterNoModulesSubtitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

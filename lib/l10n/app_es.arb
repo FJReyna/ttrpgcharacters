@@ -3,5 +3,9 @@
     "charactersAppbarTitle": "Mis Personajes",
     "charactersEmptyState": "No se encontraron personajes. Crea tu primer personaje tocando el botón +.",
     "charactersFailedState": "Error al cargar los personajes.",
-    "characterLoading": "Cargando Personaje"
+    "characterLoading": "Cargando Personaje",
+    "charactersEmptySlot": "Espacio disponible",
+    "charactersEmptySlotSubtitle": "Crear un nuevo personaje",
+    "characterNoModules": "No se encontraron módulos",
+    "characterNoModulesSubtitle": "Agrega un nuevo módulo para comenzar."
 }

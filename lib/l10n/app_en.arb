@@ -3,5 +3,9 @@
   "charactersAppbarTitle": "My Characters",
   "charactersEmptyState": "No characters found. Create your first character by tapping the + button.",
   "charactersFailedState": "Failed to load characters.",
-  "characterLoading": "Loading Character"
+  "characterLoading": "Loading Character",
+  "charactersEmptySlot": "Empty Slot",
+  "charactersEmptySlotSubtitle": "Start a new character",
+  "characterNoModules": "No Modules found",
+  "characterNoModulesSubtitle": "Add a new module to get started."
 }
