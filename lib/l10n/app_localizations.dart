@@ -112,6 +112,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to load characters.'**
   String get charactersFailedState;
+
+  /// No description provided for @characterLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading Character'**
+  String get characterLoading;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

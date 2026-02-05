@@ -1,16 +1,19 @@
 import 'package:ttrpgcharacter/features/character/domain/model/character_model.dart';
+import 'package:ttrpgcharacter/features/character/domain/model/character_modules_model.dart';
 
 enum CharacterStatus { initial, loading, success, error }
 
 class CharacterState {
   final CharacterStatus status;
-  final List<CharacterModel> characters;
+  final CharacterModel? character;
+  final CharacterModulesModel? modules;
   final String? errorMessage;
 
-  CharacterState._({
+  const CharacterState._({
     required this.status,
-    this.characters = const [],
     this.errorMessage,
+    this.character,
+    this.modules,
   });
 
   factory CharacterState.initial() =>
@@ -18,13 +21,15 @@ class CharacterState {
 
   CharacterState copyWith({
     CharacterStatus? status,
-    List<CharacterModel>? characters,
+    CharacterModel? character,
     String? errorMessage,
+    CharacterModulesModel? modules,
   }) {
     return CharacterState._(
       status: status ?? this.status,
-      characters: characters ?? this.characters,
+      character: character ?? this.character,
       errorMessage: errorMessage ?? this.errorMessage,
+      modules: modules ?? this.modules,
     );
   }
 }

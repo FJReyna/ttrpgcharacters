@@ -2,5 +2,6 @@
   "@@locale": "en",
   "charactersAppbarTitle": "My Characters",
   "charactersEmptyState": "No characters found. Create your first character by tapping the + button.",
-  "charactersFailedState": "Failed to load characters."
+  "charactersFailedState": "Failed to load characters.",
+  "characterLoading": "Loading Character"
 }

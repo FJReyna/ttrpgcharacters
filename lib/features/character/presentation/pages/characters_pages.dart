@@ -4,9 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ttrpgcharacter/core/dependency_injection.dart';
 import 'package:ttrpgcharacter/core/theme/app_colors.dart';
 import 'package:ttrpgcharacter/core/utils/extensions.dart';
-import 'package:ttrpgcharacter/features/character/presentation/bloc/character_bloc.dart';
-import 'package:ttrpgcharacter/features/character/presentation/bloc/character_event.dart';
-import 'package:ttrpgcharacter/features/character/presentation/bloc/character_state.dart';
+import 'package:ttrpgcharacter/features/character/presentation/bloc/characters/characters_bloc.dart';
+import 'package:ttrpgcharacter/features/character/presentation/bloc/characters/characters_event.dart';
+import 'package:ttrpgcharacter/features/character/presentation/bloc/characters/characters_state.dart';
 import 'package:ttrpgcharacter/features/character/presentation/widgets/character_card_preview.dart';
 import 'package:ttrpgcharacter/features/character/presentation/widgets/character_empty_slot.dart';
 
@@ -47,8 +47,8 @@ class _CharactersPagesState extends State<CharactersPages> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<CharacterBloc>()..add(GetCharactersEvent()),
-      child: BlocBuilder<CharacterBloc, CharacterState>(
+      create: (context) => getIt<CharactersBloc>()..add(GetCharactersEvent()),
+      child: BlocBuilder<CharactersBloc, CharactersState>(
         builder: (context, state) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             _updateShowFAB();
@@ -141,7 +141,11 @@ class _CharactersPagesState extends State<CharactersPages> {
                   children: [
                     IconButton(
                       icon: const Icon(FontAwesomeIcons.house),
-                      onPressed: () {},
+                      onPressed: () {
+                        context.read<CharactersBloc>().add(
+                          GetCharactersEvent(),
+                        );
+                      },
                     ),
                     IconButton(
                       icon: const Icon(FontAwesomeIcons.bookOpen),
@@ -165,10 +169,10 @@ class _CharactersPagesState extends State<CharactersPages> {
     );
   }
 
-  Widget _buildBodyContent(BuildContext context, CharacterState state) {
-    if (state.status == CharacterStatus.loading) {
+  Widget _buildBodyContent(BuildContext context, CharactersState state) {
+    if (state.status == CharactersStatus.loading) {
       return const CircularProgressIndicator();
-    } else if (state.status == CharacterStatus.success) {
+    } else if (state.status == CharactersStatus.success) {
       final itemCount = state.characters.length + 1;
       if (state.characters.isEmpty) {
         return const CharacterEmptySlot();
@@ -186,7 +190,7 @@ class _CharactersPagesState extends State<CharactersPages> {
           }
         },
       );
-    } else if (state.status == CharacterStatus.error) {
+    } else if (state.status == CharactersStatus.error) {
       return Text(context.translate.charactersFailedState);
     } else {
       return const SizedBox.shrink();

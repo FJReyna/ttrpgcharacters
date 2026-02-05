@@ -16,4 +16,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get charactersFailedState => 'Failed to load characters.';
+
+  @override
+  String get characterLoading => 'Loading Character';
 }

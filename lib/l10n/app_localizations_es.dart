@@ -16,4 +16,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get charactersFailedState => 'Error al cargar los personajes.';
+
+  @override
+  String get characterLoading => 'Cargando Personaje';
 }

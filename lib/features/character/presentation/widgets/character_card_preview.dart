@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ttrpgcharacter/core/theme/app_colors.dart';
 import 'package:ttrpgcharacter/features/character/domain/model/character_model.dart';
 
@@ -10,7 +11,9 @@ class CharacterCardPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        context.go('/character/${character.id}');
+      },
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.surfaceDark,
