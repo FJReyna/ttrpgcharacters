@@ -87,7 +87,7 @@ class CharacterHiveDatasource {
 
       final CharacterModulesModel initialModules = CharacterModulesModel(
         characterId: characterId,
-        modules: [ModuleModel(id: 'id')],
+        modules: [],
       );
       await saveCharacterModules(initialModules);
     }

@@ -5,6 +5,7 @@ import 'package:ttrpgcharacter/core/utils/extensions.dart';
 import 'package:ttrpgcharacter/features/character/presentation/bloc/character/character_bloc.dart';
 import 'package:ttrpgcharacter/features/character/presentation/bloc/character/character_event.dart';
 import 'package:ttrpgcharacter/features/character/presentation/bloc/character/character_state.dart';
+import 'package:ttrpgcharacter/features/character/presentation/widgets/character_no_modules.dart';
 
 class CharacterPage extends StatelessWidget {
   final String id;
@@ -28,7 +29,10 @@ class CharacterPage extends StatelessWidget {
                     : '',
               ),
             ),
-            body: Center(child: _buildCharacterDetails(context, state)),
+            body: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: _buildCharacterDetails(context, state),
+            ),
           );
         },
       ),
@@ -37,13 +41,18 @@ class CharacterPage extends StatelessWidget {
 
   Widget _buildCharacterDetails(BuildContext context, CharacterState state) {
     if (state.status == CharacterStatus.loading) {
-      return CircularProgressIndicator();
+      return Center(child: CircularProgressIndicator());
     } else if (state.status == CharacterStatus.error) {
       return Text('Error: ${state.errorMessage}');
     } else if (state.status == CharacterStatus.success) {
       final character = state.character;
       final modules = state.modules;
-      return Column(children: [Text('Name: ${character?.name}')]);
+
+      if (modules!.modules.isEmpty) {
+        return CharacterNoModules();
+      } else {
+        return Column(children: [Text('Name: ${character?.name}')]);
+      }
     } else {
       return SizedBox.shrink();
     }
