@@ -18,6 +18,14 @@ class CharacterHiveDatasource {
       Hive.registerAdapter(CharacterModulesModelAdapter());
     }
 
+    if (!Hive.isAdapterRegistered(ModuleModelAdapter().typeId)) {
+      Hive.registerAdapter(ModuleModelAdapter());
+    }
+
+    if (!Hive.isAdapterRegistered(ModuleTypeAdapter().typeId)) {
+      Hive.registerAdapter(ModuleTypeAdapter());
+    }
+
     _charactersBox = await Hive.openBox<CharacterModel>('characters');
     _characterModulesBox = await Hive.openBox<CharacterModulesModel>(
       'character_modules',
@@ -46,6 +54,7 @@ class CharacterHiveDatasource {
       await _characterModulesBox.put(modules.characterId, modules);
       return true;
     } catch (e) {
+      print(e.toString());
       return false;
     }
   }
@@ -74,6 +83,7 @@ class CharacterHiveDatasource {
 
     if (_charactersBox.isEmpty || _characterModulesBox.isEmpty) {
       await clear();
+      print('Seeding initial data');
       final CharacterModel initialCharacter = CharacterModel(
         id: characterId,
         name: 'Aecian',
@@ -84,12 +94,13 @@ class CharacterHiveDatasource {
         createdAt: DateTime.now(),
       );
       await saveCharacter(initialCharacter);
-
+      print('Saved initial character');
       final CharacterModulesModel initialModules = CharacterModulesModel(
         characterId: characterId,
-        modules: [],
+        modules: [ModuleModel(id: 'id', type: ModuleType.text, title: 'Test')],
       );
-      await saveCharacterModules(initialModules);
+      bool result = await saveCharacterModules(initialModules);
+      print('saved initial character modules: $result');
     }
   }
 }
