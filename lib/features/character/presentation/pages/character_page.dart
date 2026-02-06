@@ -6,6 +6,13 @@ import 'package:ttrpgcharacter/features/character/presentation/bloc/character/ch
 import 'package:ttrpgcharacter/features/character/presentation/bloc/character/character_event.dart';
 import 'package:ttrpgcharacter/features/character/presentation/bloc/character/character_state.dart';
 import 'package:ttrpgcharacter/features/character/presentation/widgets/character_no_modules.dart';
+import 'package:ttrpgcharacter/features/module/domain/model/integer_module_data.dart';
+import 'package:ttrpgcharacter/features/module/domain/model/module_model.dart';
+import 'package:ttrpgcharacter/features/module/domain/model/text_module_data.dart';
+import 'package:ttrpgcharacter/features/module/domain/model/tracker_module_data.dart';
+import 'package:ttrpgcharacter/features/module/presentation/widgets/integer_module.dart';
+import 'package:ttrpgcharacter/features/module/presentation/widgets/text_module.dart';
+import 'package:ttrpgcharacter/features/module/presentation/widgets/tracker_module.dart';
 
 class CharacterPage extends StatelessWidget {
   final String id;
@@ -45,16 +52,41 @@ class CharacterPage extends StatelessWidget {
     } else if (state.status == CharacterStatus.error) {
       return Text('Error: ${state.errorMessage}');
     } else if (state.status == CharacterStatus.success) {
-      final character = state.character;
       final modules = state.modules;
 
       if (modules!.modules.isEmpty) {
         return CharacterNoModules();
       } else {
-        return Column(children: [Text('Name: ${character?.name}')]);
+        return ListView.builder(
+          itemCount: modules.modules.length,
+          itemBuilder: (context, index) {
+            final module = modules.modules[index];
+            return _buildModule(module.type, module);
+          },
+        );
       }
     } else {
       return SizedBox.shrink();
+    }
+  }
+
+  Widget _buildModule(ModuleType type, ModuleModel module) {
+    switch (type) {
+      case ModuleType.text:
+        return TextModule(
+          title: module.title,
+          data: TextModuleData.fromJson(module.data),
+        );
+      case ModuleType.tracker:
+        return TrackerModule(
+          title: module.title,
+          data: TrackerModuleData.fromJson(module.data),
+        );
+      case ModuleType.integer:
+        return IntegerModule(
+          title: module.title,
+          data: IntegerModuleData.fromJson(module.data),
+        );
     }
   }
 }

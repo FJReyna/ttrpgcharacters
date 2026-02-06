@@ -97,7 +97,26 @@ class CharacterHiveDatasource {
       print('Saved initial character');
       final CharacterModulesModel initialModules = CharacterModulesModel(
         characterId: characterId,
-        modules: [ModuleModel(id: 'id', type: ModuleType.text, title: 'Test')],
+        modules: [
+          ModuleModel(
+            id: 'id1',
+            type: ModuleType.text,
+            title: 'Test',
+            data: {'content': 'This is a test content for the text module.'},
+          ),
+          ModuleModel(
+            id: 'id2',
+            type: ModuleType.tracker,
+            title: 'Health Point',
+            data: {'value': 37, 'maxValue': 64},
+          ),
+          ModuleModel(
+            id: 'id3',
+            type: ModuleType.integer,
+            title: 'STR',
+            data: {'value': 10, 'readOnly': false},
+          ),
+        ],
       );
       bool result = await saveCharacterModules(initialModules);
       print('saved initial character modules: $result');

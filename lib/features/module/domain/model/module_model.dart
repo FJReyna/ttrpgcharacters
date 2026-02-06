@@ -2,7 +2,15 @@ import 'package:hive_ce/hive.dart';
 
 part 'module_model.g.dart';
 
-enum ModuleType { text, integer, tracker }
+@HiveType(typeId: 3)
+enum ModuleType {
+  @HiveField(0)
+  text,
+  @HiveField(1)
+  integer,
+  @HiveField(2)
+  tracker,
+}
 
 @HiveType(typeId: 1)
 class ModuleModel {
@@ -12,6 +20,13 @@ class ModuleModel {
   final ModuleType type;
   @HiveField(2)
   final String title;
+  @HiveField(3)
+  Map<String, dynamic> data;
 
-  ModuleModel({required this.id, required this.type, required this.title});
+  ModuleModel({
+    required this.id,
+    required this.type,
+    required this.title,
+    this.data = const {},
+  });
 }
