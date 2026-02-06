@@ -30,7 +30,6 @@ class TextModule extends StatelessWidget {
             ],
           ),
           SizedBox(
-            width: double.infinity,
             child: Card(
               child: Padding(
                 padding: const EdgeInsets.symmetric(

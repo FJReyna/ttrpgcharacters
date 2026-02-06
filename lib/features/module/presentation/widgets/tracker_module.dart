@@ -23,7 +23,6 @@ class _TrackerModuleState extends State<TrackerModule> {
         children: [
           Divider(color: AppColors.textSubtle),
           SizedBox(
-            width: double.infinity,
             child: Card(
               child: Padding(
                 padding: const EdgeInsets.symmetric(

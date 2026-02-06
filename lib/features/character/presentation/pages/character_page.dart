@@ -61,7 +61,23 @@ class CharacterPage extends StatelessWidget {
           itemCount: modules.modules.length,
           itemBuilder: (context, index) {
             final module = modules.modules[index];
-            return _buildModule(module.type, module);
+            return LayoutBuilder(
+              builder: (context, constraints) {
+                final moduleWidget = _buildModule(module.type, module);
+                final moduleFeedback = Material(
+                  color: Colors.transparent,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: constraints.maxWidth),
+                    child: Opacity(
+                      opacity: 0.7,
+                      child: _buildModule(module.type, module),
+                    ),
+                  ),
+                );
+
+                return Draggable(feedback: moduleFeedback, child: moduleWidget);
+              },
+            );
           },
         );
       }
